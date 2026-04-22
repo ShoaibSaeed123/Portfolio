@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience | Shoaib</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b1120;
+  --card:rgba(15,23,42,0.6);
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --accent:#60a5fa;
+  --accent2:#34d399;
+  --border:rgba(255,255,255,0.08);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter;
+}
+
+body{
+  background:linear-gradient(to bottom,#020617,#0b1120);
+  color:var(--text);
+}
+
+/* ===== HEADER ===== */
+header{
+  backdrop-filter:blur(18px);
+  background:rgba(11,17,32,0.7);
+  padding:18px 24px;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+header a{
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:500;
+  transition:0.3s;
+}
+
+header a:hover{
+  color:#fff;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+h2{
+  text-align:center;
+  font-size:38px;
+  margin-bottom:60px;
+  background:linear-gradient(90deg,#60a5fa,#34d399);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ===== TIMELINE ===== */
+.timeline{
+  position:relative;
+  margin-left:20px;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:3px;
+  height:100%;
+  background:linear-gradient(#60a5fa,#34d399);
+}
+
+/* ITEM */
+.item{
+  position:relative;
+  margin-bottom:50px;
+  padding-left:35px;
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeUp 0.8s forwards;
+}
+
+.item:nth-child(2){animation-delay:0.3s;}
+
+.item::before{
+  content:"";
+  position:absolute;
+  left:-10px;
+  top:10px;
+  width:20px;
+  height:20px;
+  background:linear-gradient(135deg,#60a5fa,#34d399);
+  border-radius:50%;
+  box-shadow:0 0 15px rgba(96,165,250,0.6);
+}
+
+/* CARD */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:22px;
+  backdrop-filter:blur(12px);
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 50px rgba(96,165,250,0.2);
+}
+
+.card h3{
+  font-size:20px;
+}
+
+.card h4{
+  color:var(--accent);
+  margin:5px 0 10px;
+}
+
+.card span{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.card p{
+  margin-top:10px;
+  font-size:14px;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+/* ===== CERTIFICATES ===== */
+.certificates{
+  margin-top:90px;
+}
+
+.cert-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+.cert{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+  transition:0.4s;
+  cursor:pointer;
+}
+
+.cert img{
+  width:100%;
+  max-height:300px;
+  object-fit:contain;
+  background:#020617;
+  padding:10px;
+}
+
+.cert p{
+  padding:12px;
+  text-align:center;
+  color:var(--muted);
+}
+
+.cert:hover{
+  transform:scale(1.05);
+  box-shadow:0 20px 50px rgba(52,211,153,0.2);
+}
+
+/* ===== MODAL ===== */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:200;
+}
+
+.modal img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:10px;
+}
+
+.modal span{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:30px;
+  cursor:pointer;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:600px){
+  h2{font-size:28px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">← Back Home</a>
+</header>
+
+<div class="container">
+
+<h2>Experience</h2>
+
+<div class="timeline">
+
+  <div class="item">
+    <div class="card">
+      <h3>Web Development Intern</h3>
+      <h4>Air University Incubation Center</h4>
+      <span>July – August 2025 </span>
+      <p>
+        Worked on real-world web development tasks, assisted in building 
+        and testing web applications, and gained hands-on experience in modern technologies.
+      </p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="card">
+      <h3>Web & AI Instructor (School Level)</h3>
+      <span>March – April 2026</span>
+      <p>
+        Taught basic web development and AI concepts and guided students 
+        in practical coding exercises.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<div class="certificates">
+  <h2>Certificates</h2>
+
+  <div class="cert-grid">
+
+    <div class="cert" onclick="openModal(this)">
+      <img src="assets/certificate/khuda-hafiz .png" alt="Certificate">
+      <p>Web Development Internship Certificate</p>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <span onclick="closeModal()">✕</span>
+  <img id="modalImg">
+</div>
+
+<script>
+function openModal(el){
+  document.getElementById("modal").style.display="flex";
+  document.getElementById("modalImg").src = el.querySelector("img").src;
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+</script>
+
+</body>
+</html>

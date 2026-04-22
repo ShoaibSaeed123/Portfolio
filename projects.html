@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Shoaib</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b1120;
+  --card:rgba(15,23,42,0.6);
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --accent:#60a5fa;
+  --accent2:#34d399;
+  --border:rgba(255,255,255,0.08);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter;
+}
+
+body{
+  background:linear-gradient(to bottom,#020617,#0b1120);
+  color:var(--text);
+}
+
+/* ===== HEADER ===== */
+header{
+  backdrop-filter:blur(18px);
+  background:rgba(11,17,32,0.7);
+  padding:18px 24px;
+  border-bottom:1px solid var(--border);
+}
+
+header a{
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:500;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+h2{
+  font-size:38px;
+  margin-bottom:50px;
+  text-align:center;
+  background:linear-gradient(90deg,#60a5fa,#34d399);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ===== PROJECT GRID ===== */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+}
+
+/* ===== CARD ===== */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
+  transition:0.5s;
+  position:relative;
+  cursor:pointer;
+  backdrop-filter:blur(12px);
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 25px 60px rgba(96,165,250,0.2);
+}
+
+/* Video Wrapper */
+.card-media{
+  position:relative;
+}
+
+.card video{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  transition:0.4s;
+}
+
+.card:hover video{
+  transform:scale(1.05);
+}
+
+/* Play overlay */
+.card-media::after{
+  content:"▶";
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size:40px;
+  color:white;
+  opacity:0.7;
+}
+
+/* Content */
+.card-content{
+  padding:20px;
+}
+
+.card h4{
+  font-size:22px;
+  margin-bottom:8px;
+}
+
+.card span{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* Buttons */
+.card-buttons{
+  margin-top:15px;
+  display:flex;
+  gap:10px;
+}
+
+.btn{
+  padding:8px 14px;
+  border-radius:10px;
+  font-size:13px;
+  border:none;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,#60a5fa,#34d399);
+  color:#020617;
+}
+
+.btn-outline{
+  border:1px solid var(--accent);
+  color:var(--accent);
+  background:transparent;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+}
+
+/* ===== AI SECTION ===== */
+.ai-projects{
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+}
+
+.ai-card{
+  display:flex;
+  justify-content:space-between;
+  padding:25px;
+  border-radius:20px;
+  background:var(--card);
+  border:1px solid var(--border);
+  backdrop-filter:blur(12px);
+  transition:0.4s;
+  position:relative;
+}
+
+.ai-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 20px 40px rgba(52,211,153,0.15);
+}
+
+.ai-left h3{
+  margin-bottom:10px;
+}
+
+.ai-left p{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+.ai-tags span{
+  background:linear-gradient(135deg,#60a5fa,#34d399);
+  padding:6px 12px;
+  border-radius:10px;
+  font-size:12px;
+  margin-right:6px;
+  color:#020617;
+}
+
+.ai-right{
+  font-size:40px;
+}
+
+/* ===== VIEWER ===== */
+.viewer{
+  margin-top:60px;
+  display:none;
+  padding:30px;
+  border-radius:20px;
+  background:var(--card);
+  border:1px solid var(--border);
+  animation:fadeUp 0.6s;
+}
+
+.viewer video{
+  width:100%;
+  border-radius:15px;
+  margin-bottom:20px;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .ai-card{
+    flex-direction:column;
+    gap:15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">← Back Home</a>
+</header>
+
+<div class="container">
+
+<h2>My Projects</h2>
+
+<div class="projects">
+
+<!-- PROJECT 1 -->
+<div class="card" onclick="showProject('assets/project1.mp4','Blood Donation System','A complete MERN-based blood donation platform with JWT authentication, donor verification, admin dashboard, and real-time request handling.')">
+  <div class="card-media">
+    <video src="assets/project1.mp4" muted autoplay loop></video>
+  </div>
+  <div class="card-content">
+    <h4>Blood Donation System</h4>
+    <span>MERN • JWT • Admin Panel</span>
+    <div class="card-buttons">
+      <button class="btn btn-outline" onclick="copyLink(event,'https://github.com/ShoaibSaeed123/BloodDonation')">GitHub</button>
+      <button class="btn btn-primary">View</button>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECT 2 -->
+<div class="card" onclick="showProject('assets/project2.mp4','Gaming Platform','Frontend website built using HTML, CSS, and JavaScript.')">
+  <div class="card-media">
+    <video src="assets/project2.mp4" muted autoplay loop></video>
+  </div>
+  <div class="card-content">
+    <h4>Gaming Platform</h4>
+    <span>HTML • CSS • JavaScript</span>
+    <div class="card-buttons">
+      <button class="btn btn-outline" onclick="copyLink(event,'https://github.com/ShoaibSaeed123/GamingPlatform')">GitHub</button>
+      <button class="btn btn-primary">View</button>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECT 3 -->
+<div class="card" onclick="showProject('assets/project3.mp4','Hotel Platform','Hotel booking UI system.')">
+  <div class="card-media">
+    <video src="assets/project3.mp4" muted autoplay loop></video>
+  </div>
+  <div class="card-content">
+    <h4>Hotel Platform</h4>
+    <span>Frontend • Responsive</span>
+    <div class="card-buttons">
+      <button class="btn btn-outline" onclick="copyLink(event,'https://github.com/ShoaibSaeed123/HotelPlatform')">GitHub</button>
+      <button class="btn btn-primary">View</button>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECT 4 -->
+<div class="card" onclick="showProject('assets/project4.mp4','Landing Page','Educational landing page demo.')">
+  <div class="card-media">
+    <video src="assets/project4.mp4" muted autoplay loop></video>
+  </div>
+  <div class="card-content">
+    <h4>Landing Page</h4>
+    <span>HTML • CSS • JS</span>
+    <div class="card-buttons">
+      <button class="btn btn-outline" onclick="copyLink(event,'https://github.com/ShoaibSaeed123/PhishingPage')">GitHub</button>
+      <button class="btn btn-primary">View</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<h2 style="margin-top:80px;">AI / ML Projects</h2>
+
+<div class="ai-projects">
+
+<div class="ai-card">
+  <div class="ai-left">
+    <h3>Hand Gesture Detection</h3>
+    <p>Real-time gesture recognition using OpenCV & MediaPipe.</p>
+    <div class="ai-tags">
+      <span>Python</span><span>OpenCV</span><span>AI</span>
+    </div>
+  </div>
+  <div class="ai-right">🤖</div>
+</div>
+
+<div class="ai-card">
+  <div class="ai-left">
+    <h3>Diabetes Prediction</h3>
+    <p>ML model for predicting diabetes risk.</p>
+    <div class="ai-tags">
+      <span>ML</span><span>Regression</span>
+    </div>
+  </div>
+  <div class="ai-right">📊</div>
+</div>
+
+<div class="ai-card">
+  <div class="ai-left">
+    <h3>Movies Website</h3>
+    <p>Modern UI movie browsing frontend.</p>
+    <div class="ai-tags">
+      <span>JS</span><span>UI/UX</span>
+    </div>
+  </div>
+  <div class="ai-right">🎬</div>
+</div>
+
+</div>
+
+<div class="viewer" id="viewer">
+  <video id="video" controls></video>
+  <h3 id="title"></h3>
+  <p id="desc"></p>
+</div>
+
+</div>
+
+<script>
+function showProject(video,title,desc){
+  document.getElementById("viewer").style.display="block";
+  document.getElementById("video").src = video;
+  document.getElementById("title").innerText = title;
+  document.getElementById("desc").innerText = desc;
+  document.getElementById("viewer").scrollIntoView({behavior:"smooth"});
+}
+
+function copyLink(e,link){
+  e.stopPropagation();
+  navigator.clipboard.writeText(link);
+  alert("GitHub link copied!");
+}
+</script>
+
+</body>
+</html>

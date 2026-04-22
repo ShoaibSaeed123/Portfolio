@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Skills</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:Poppins;
+  background:#020617;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* ===== Floating Gradient Background ===== */
+.bg{
+  position:fixed;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  z-index:-1;
+}
+
+.bg span{
+  position:absolute;
+  width:400px;
+  height:400px;
+  background:radial-gradient(circle,#a14514,transparent);
+  filter:blur(120px);
+  animation:move 12s infinite alternate;
+}
+
+.bg span:nth-child(2){
+  left:60%;
+  top:50%;
+  background:#22c55e;
+}
+
+@keyframes move{
+  from{transform:translate(0,0)}
+  to{transform:translate(200px,150px)}
+}
+
+/* ===== Heading ===== */
+h1{
+  text-align:center;
+  font-size:3.8rem;
+  margin:80px 0 20px;
+  background:linear-gradient(90deg,#f8385e,#5622c5,#55f7ef);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ===== Grid ===== */
+.skills-container{
+  width:90%;
+  max-width:1400px;
+  margin:auto;
+  display:grid;
+  gap:35px;
+  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+}
+
+/* ===== Card ===== */
+.skill-card{
+  padding:25px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.04);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.1);
+  position:relative;
+  transition:0.4s;
+  transform-style:preserve-3d;
+}
+
+/* Gradient border */
+.skill-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:1px;
+  background:linear-gradient(120deg,#38bdf8,#22c55e,#a855f7);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  animation:rotate 6s linear infinite;
+}
+
+@keyframes rotate{
+  100%{filter:hue-rotate(360deg)}
+}
+
+/* Hover */
+.skill-card:hover{
+  transform:translateY(-12px) scale(1.05);
+  box-shadow:0 25px 60px rgba(56,189,248,0.3);
+}
+
+/* Category */
+.category{
+  color:#38bdf8;
+  margin-bottom:15px;
+  text-transform:uppercase;
+  font-size:0.9rem;
+  letter-spacing:1px;
+}
+
+/* Skill */
+.skill{
+  margin-bottom:14px;
+}
+
+.skill-title{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:5px;
+}
+
+/* Progress */
+.progress{
+  height:8px;
+  background:rgba(255,255,255,0.1);
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.progress-bar{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#38bdf8,#22c55e);
+  box-shadow:0 0 12px #38bdf8;
+  transition:1.5s;
+}
+
+/* ===== Soft Skills ===== */
+.soft-section{
+  width:90%;
+  max-width:1200px;
+  margin:100px auto;
+}
+
+.soft-section h2{
+  font-size:2.5rem;
+  margin-bottom:25px;
+  color:#38bdf8;
+}
+
+.soft-grid{
+  display:grid;
+  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+
+.soft-card{
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
+  background:rgba(255,255,255,0.05);
+  transition:0.3s;
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+.soft-card:hover{
+  transform:scale(1.08);
+  background:linear-gradient(135deg,#38bdf8,#22c55e);
+  color:#000;
+  box-shadow:0 10px 30px rgba(56,189,248,0.4);
+}
+
+/* Fade */
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+</style>
+</head>
+<header>
+  <a href="index.html">← Back Home</a>
+</header>
+<body>
+
+<div class="bg">
+  <span></span>
+  <span></span>
+</div>
+
+<h1>My Skills 🚀</h1>
+
+<div class="skills-container">
+
+<!-- MERN -->
+<div class="skill-card fade">
+<div class="category">Full Stack (MERN)</div>
+<div class="skill"><div class="skill-title">MongoDB <span>90%</span></div><div class="progress"><div class="progress-bar" data-width="90%"></div></div></div>
+<div class="skill"><div class="skill-title">Express.js <span>85%</span></div><div class="progress"><div class="progress-bar" data-width="85%"></div></div></div>
+<div class="skill"><div class="skill-title">React.js <span>88%</span></div><div class="progress"><div class="progress-bar" data-width="88%"></div></div></div>
+<div class="skill"><div class="skill-title">Node.js <span>87%</span></div><div class="progress"><div class="progress-bar" data-width="87%"></div></div></div>
+</div>
+
+<!-- Frontend -->
+<div class="skill-card fade">
+<div class="category">Frontend</div>
+<div class="skill"><div class="skill-title">HTML5 <span>95%</span></div><div class="progress"><div class="progress-bar" data-width="95%"></div></div></div>
+<div class="skill"><div class="skill-title">CSS3 <span>92%</span></div><div class="progress"><div class="progress-bar" data-width="92%"></div></div></div>
+<div class="skill"><div class="skill-title">Responsive Design <span>90%</span></div><div class="progress"><div class="progress-bar" data-width="90%"></div></div></div>
+<div class="skill"><div class="skill-title">UI/UX Principles <span>85%</span></div><div class="progress"><div class="progress-bar" data-width="85%"></div></div></div>
+</div>
+
+<!-- Backend -->
+<div class="skill-card fade">
+<div class="category">Backend</div>
+<div class="skill"><div class="skill-title">Node.js <span>87%</span></div><div class="progress"><div class="progress-bar" data-width="87%"></div></div></div>
+<div class="skill"><div class="skill-title">Express.js <span>85%</span></div><div class="progress"><div class="progress-bar" data-width="85%"></div></div></div>
+<div class="skill"><div class="skill-title">JWT Auth <span>80%</span></div><div class="progress"><div class="progress-bar" data-width="80%"></div></div></div>
+<div class="skill"><div class="skill-title">REST APIs <span>88%</span></div><div class="progress"><div class="progress-bar" data-width="88%"></div></div></div>
+</div>
+
+<!-- Database -->
+<div class="skill-card fade">
+<div class="category">Database</div>
+<div class="skill"><div class="skill-title">MongoDB <span>90%</span></div><div class="progress"><div class="progress-bar" data-width="90%"></div></div></div>
+<div class="skill"><div class="skill-title">Mongoose <span>85%</span></div><div class="progress"><div class="progress-bar" data-width="85%"></div></div></div>
+</div>
+
+<!-- AI -->
+<div class="skill-card fade">
+<div class="category">AI & Machine Learning</div>
+<div class="skill"><div class="skill-title">Regression Models <span>75%</span></div><div class="progress"><div class="progress-bar" data-width="75%"></div></div></div>
+<div class="skill"><div class="skill-title">Python Data Processing <span>80%</span></div><div class="progress"><div class="progress-bar" data-width="80%"></div></div></div>
+<div class="skill"><div class="skill-title">Pandas / NumPy <span>78%</span></div><div class="progress"><div class="progress-bar" data-width="78%"></div></div></div>
+</div>
+
+<!-- DevOps -->
+<div class="skill-card fade">
+<div class="category">DevOps</div>
+<div class="skill"><div class="skill-title">Docker <span>80%</span></div><div class="progress"><div class="progress-bar" data-width="80%"></div></div></div>
+<div class="skill"><div class="skill-title">Jenkins <span>75%</span></div><div class="progress"><div class="progress-bar" data-width="75%"></div></div></div>
+<div class="skill"><div class="skill-title">Kubernetes <span>70%</span></div><div class="progress"><div class="progress-bar" data-width="70%"></div></div></div>
+<div class="skill"><div class="skill-title">Git & GitHub <span>90%</span></div><div class="progress"><div class="progress-bar" data-width="90%"></div></div></div>
+</div>
+
+<!-- Cloud -->
+<div class="skill-card fade">
+<div class="category">Cloud & Deployment</div>
+<div class="skill"><div class="skill-title">AWS <span>70%</span></div><div class="progress"><div class="progress-bar" data-width="70%"></div></div></div>
+<div class="skill"><div class="skill-title">Vercel / Netlify <span>85%</span></div><div class="progress"><div class="progress-bar" data-width="85%"></div></div></div>
+<div class="skill"><div class="skill-title">CI/CD Pipelines <span>75%</span></div><div class="progress"><div class="progress-bar" data-width="75%"></div></div></div>
+</div>
+
+<!-- Programming -->
+<div class="skill-card fade">
+<div class="category">Programming</div>
+<div class="skill"><div class="skill-title">JavaScript (ES6+) <span>90%</span></div><div class="progress"><div class="progress-bar" data-width="90%"></div></div></div>
+<div class="skill"><div class="skill-title">Python <span>80%</span></div><div class="progress"><div class="progress-bar" data-width="80%"></div></div></div>
+</div>
+
+</div>
+
+<!-- Soft Skills -->
+<div class="soft-section fade">
+<h2>Soft Skills</h2>
+<div class="soft-grid">
+<div class="soft-card">Problem Solving</div>
+<div class="soft-card">Debugging</div>
+<div class="soft-card">Leadership</div>
+<div class="soft-card">Communication</div>
+<div class="soft-card">Team Collaboration</div>
+<div class="soft-card">Time Management</div>
+<div class="soft-card">Critical Thinking</div>
+<div class="soft-card">Attention to Detail</div>
+<div class="soft-card">Fast Learning Ability</div>
+<div class="soft-card">Client Handling</div>
+<div class="soft-card">Responsibility & Accountability</div>
+</div>
+</div>
+
+<script>
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+entry.target.querySelectorAll(".progress-bar").forEach(bar=>{
+bar.style.width=bar.dataset.width;
+});
+}
+});
+},{threshold:0.2});
+
+document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>

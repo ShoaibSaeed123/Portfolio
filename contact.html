@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Shoaib</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:Inter;
+  background: radial-gradient(circle at top,#0f172a,#020617);
+  color:#fff;
+  min-height:100vh;
+}
+
+/* background glow */
+body::before{
+  content:"";
+  position:fixed;
+  width:400px;
+  height:400px;
+  background:#25D366;
+  filter:blur(120px);
+  top:-100px;
+  right:-100px;
+  opacity:0.2;
+}
+
+.container{
+  max-width:800px;
+  margin:auto;
+  padding:80px 20px;
+  animation:fadeUp 1s ease;
+}
+
+h2{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  color:#9ca3af;
+  margin-bottom:30px;
+  font-size:18px;
+}
+
+/* glass card */
+.card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter:blur(20px);
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+input, textarea{
+  width:100%;
+  padding:16px;
+  margin:12px 0;
+  border:none;
+  border-radius:10px;
+  background:rgba(255,255,255,0.08);
+  color:#fff;
+  font-size:16px;
+  transition:0.3s;
+}
+
+input:focus, textarea:focus{
+  outline:none;
+  box-shadow:0 0 0 2px #25D366;
+}
+
+/* button */
+button{
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:10px;
+  background:#25D366;
+  font-size:18px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 20px rgba(37,211,102,0.4);
+}
+
+/* loading state */
+button.loading{
+  opacity:0.7;
+  pointer-events:none;
+}
+
+/* success text */
+.success{
+  text-align:center;
+  margin-top:15px;
+  color:#25D366;
+  display:none;
+}
+
+/* links */
+.links{
+  margin-top:25px;
+}
+
+.links a{
+  display:block;
+  margin:6px 0;
+  color:#38bdf8;
+  text-decoration:none;
+}
+
+.links a:hover{
+  text-decoration:underline;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Let's Connect 🚀</h2>
+  <p class="subtitle">Have a project or idea? Send me a message directly on WhatsApp.</p>
+
+  <div class="card">
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button id="btn">Send via WhatsApp</button>
+    </form>
+
+    <div class="success" id="successMsg">Opening WhatsApp... ✅</div>
+
+    <div class="links">
+      <a href="mailto:saeedshoaib888@gmail.com">📧 Email</a>
+      <a href="https://github.com/ShoaibSaeed123" target="_blank">💻 GitHub</a>
+      <a href="https://linkedin.com/in/muhammad-shoaib-saeed" target="_blank">🔗 LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById("contact-form").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  let btn = document.getElementById("btn");
+  let success = document.getElementById("successMsg");
+
+  btn.classList.add("loading");
+  btn.innerText = "Processing...";
+
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let message = document.getElementById("message").value;
+
+  let phone = "923054449606";
+
+  let text = `🚀 New Message%0A%0A👤 Name: ${name}%0A📧 Email: ${email}%0A💬 Message: ${message}`;
+
+  let url = `https://wa.me/${phone}?text=${text}`;
+
+  setTimeout(()=>{
+    window.open(url, "_blank");
+
+    btn.classList.remove("loading");
+    btn.innerText = "Send via WhatsApp";
+    success.style.display = "block";
+  }, 800);
+});
+</script>
+
+</body>
+</html>
