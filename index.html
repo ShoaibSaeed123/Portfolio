@@ -9,13 +9,14 @@
 
 <style>
 :root{
-  --bg:#0b1120;
-  --card:rgba(255,255,255,0.06);
-  --text:#e5e7eb;
+  --bg:#0f172a;
+  --card:rgba(255,255,255,0.05);
+  --text:#e2e8f0;
   --muted:#94a3b8;
 
-  --accent:#60a5fa;
-  --accent2:#34d399;
+  /* NEW PREMIUM COLORS */
+  --accent:#c084fc;   /* soft purple */
+  --accent2:#f59e0b;  /* warm amber */
 }
 
 *{
@@ -26,26 +27,25 @@
 }
 
 body{
-  background:linear-gradient(to bottom,#0b1120,#020617);
+  background:linear-gradient(to bottom,#0f172a,#020617);
   color:var(--text);
   overflow-x:hidden;
 }
 
-/* ===== CURSOR LIGHT EFFECT ===== */
+/* CURSOR */
 .cursor-light{
   position:fixed;
-  width:350px;
-  height:350px;
-  background:radial-gradient(circle, rgba(96,165,250,0.25), transparent 60%);
+  width:300px;
+  height:300px;
+  background:radial-gradient(circle, rgba(192,132,252,0.18), transparent 60%);
   border-radius:50%;
   pointer-events:none;
   transform:translate(-50%,-50%);
   z-index:0;
-  filter:blur(30px);
-  transition:0.05s;
+  filter:blur(40px);
 }
 
-/* ===== BACKGROUND GLOW ===== */
+/* BG GLOW */
 .bg{
   position:fixed;
   width:100%;
@@ -55,29 +55,24 @@ body{
 
 .bg span{
   position:absolute;
-  width:500px;
-  height:500px;
-  background:radial-gradient(circle, rgba(96,165,250,0.18), transparent 70%);
-  filter:blur(140px);
-  animation:move 16s infinite alternate ease-in-out;
+  width:400px;
+  height:400px;
+  background:radial-gradient(circle, rgba(192,132,252,0.12), transparent 70%);
+  filter:blur(120px);
 }
 
 .bg span:nth-child(2){
   left:60%;
   top:50%;
-  background:radial-gradient(circle, rgba(52,211,153,0.18), transparent 70%);
+  background:radial-gradient(circle, rgba(245,158,11,0.12), transparent 70%);
 }
 
-@keyframes move{
-  to{transform:translate(200px,150px)}
-}
-
-/* ===== NAVBAR ===== */
+/* NAV */
 header{
   position:fixed;
   width:100%;
-  backdrop-filter:blur(20px);
-  background:rgba(11,17,32,0.6);
+  backdrop-filter:blur(15px);
+  background:rgba(15,23,42,0.7);
   border-bottom:1px solid rgba(255,255,255,0.05);
   z-index:100;
 }
@@ -92,18 +87,22 @@ nav{
 }
 
 nav h3{
-  font-size:1.5rem;
-  background:linear-gradient(90deg,#60a5fa,#34d399);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  font-size:1.4rem;
+  color:#fff;
+  letter-spacing:1px;
+}
+
+/* NAV LINKS */
+.nav-links{
+  display:flex;
 }
 
 nav a{
   color:var(--text);
   margin-left:25px;
   text-decoration:none;
+  font-size:14px;
   position:relative;
-  font-size:15px;
 }
 
 nav a::after{
@@ -114,14 +113,21 @@ nav a::after{
   width:0%;
   height:2px;
   background:var(--accent);
-  transition:0.3s;
+  transition:.3s;
 }
 
 nav a:hover::after{
   width:100%;
 }
 
-/* ===== HERO ===== */
+/* HAMBURGER */
+.menu-btn{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+}
+
+/* HERO */
 .hero{
   min-height:100vh;
   max-width:1200px;
@@ -129,104 +135,81 @@ nav a:hover::after{
   padding:140px 20px;
   display:grid;
   grid-template-columns:1fr 1fr;
-  align-items:center;
   gap:50px;
-  position:relative;
-  z-index:2;
+  align-items:center;
 }
 
-/* TEXT */
 .hero h1{
-  font-size:3.5rem;
-  letter-spacing:-1px;
+  font-size:3rem;
 }
 
 .hero h1 span{
-  background:linear-gradient(90deg,#60a5fa,#34d399);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color:var(--accent);
 }
 
 .hero h2{
-  margin:12px 0;
-  color:#60a5fa;
+  margin:10px 0;
+  color:var(--accent2);
   font-weight:500;
 }
 
 .hero p{
   color:var(--muted);
-  line-height:1.8;
-  font-size:1.05rem;
-  max-width:550px;
+  line-height:1.7;
+  max-width:500px;
 }
 
 /* BUTTONS */
-.btns{
-  margin-top:25px;
-}
-
 .btn{
   display:inline-block;
-  padding:14px 28px;
-  border-radius:12px;
+  padding:12px 26px;
+  border-radius:10px;
+  margin-top:20px;
   text-decoration:none;
-  margin-right:12px;
-  transition:0.3s;
   font-weight:600;
-  border:none;
-  cursor:pointer;
+  transition:.3s;
 }
 
 .primary{
-  background:linear-gradient(135deg,#60a5fa,#34d399);
+  background:var(--accent);
   color:#020617;
-  box-shadow:0 10px 30px rgba(96,165,250,0.25);
 }
 
 .primary:hover{
-  transform:translateY(-3px);
-  box-shadow:0 15px 40px rgba(96,165,250,0.35);
+  opacity:.85;
 }
 
 .outline{
-  border:1px solid rgba(96,165,250,0.4);
-  color:#60a5fa;
-  background:transparent;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  margin-left:10px;
 }
 
 .outline:hover{
-  background:#60a5fa;
+  background:var(--accent);
   color:#020617;
 }
 
 /* IMAGE */
 .hero img{
   width:100%;
-  max-width:380px;
-  border-radius:22px;
+  max-width:350px;
+  border-radius:18px;
   justify-self:end;
-  transition:0.4s;
-  box-shadow:0 25px 60px rgba(96,165,250,0.2);
-  z-index:2;
 }
 
-.hero img:hover{
-  transform:rotateY(8deg) scale(1.05);
-}
-
-/* TYPEWRITER */
+/* TYPE */
 .type{
-  border-right:2px solid #60a5fa;
+  border-right:2px solid var(--accent);
   white-space:nowrap;
   overflow:hidden;
   width:0;
-  animation:typing 3s steps(20,end) forwards, blink 0.7s infinite;
+  animation:typing 3s steps(20,end) forwards, blink .7s infinite;
 }
 
 @keyframes typing{
   to{width:100%}
 }
-
 @keyframes blink{
   50%{border-color:transparent}
 }
@@ -239,35 +222,28 @@ nav a:hover::after{
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:200;
 }
 
 .modal-content{
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(20px);
-  padding:30px;
-  border-radius:16px;
+  background:#020617;
+  padding:25px;
+  border-radius:12px;
   width:90%;
-  max-width:400px;
+  max-width:350px;
   text-align:center;
-  animation:scaleIn .4s ease;
-}
-
-.modal-content p{
-  color:var(--muted);
 }
 
 .modal-content a{
   display:block;
-  margin:12px 0;
-  padding:12px;
-  border-radius:10px;
-  background:linear-gradient(135deg,#60a5fa,#34d399);
+  margin:10px 0;
+  padding:10px;
+  background:var(--accent);
   color:#020617;
+  border-radius:8px;
   text-decoration:none;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 @media(max-width:900px){
   .hero{
     grid-template-columns:1fr;
@@ -277,64 +253,76 @@ nav a:hover::after{
   .hero img{
     justify-self:center;
   }
-}
 
-/* ANIMATION */
-@keyframes scaleIn{
-  from{transform:scale(.8);opacity:0}
-  to{transform:scale(1);opacity:1}
+  .nav-links{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#020617;
+    flex-direction:column;
+    display:none;
+    text-align:center;
+  }
+
+  .nav-links a{
+    margin:15px 0;
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  .menu-btn{
+    display:block;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- CURSOR LIGHT -->
 <div class="cursor-light" id="cursor"></div>
 
-<!-- BACKGROUND -->
 <div class="bg">
   <span></span>
   <span></span>
 </div>
 
-<!-- NAV -->
 <header>
   <nav>
     <h3>Shoaib</h3>
-    <div>
+
+    <div class="nav-links" id="navLinks">
       <a href="skills.html">Skills</a>
       <a href="projects.html">Projects</a>
       <a href="contact.html">Contact</a>
       <a href="experience.html">Experience</a>
       <a href="education.html">Education</a>
     </div>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
   </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div>
     <h1>Hi, I'm <span>Shoaib</span></h1>
     <h2 class="type">MERN Stack Developer</h2>
     <p>
-      Results-driven Full Stack Developer with experience in building scalable web applications, APIs, and AI systems.
+      I build clean, scalable web applications with modern technologies and real-world performance in mind.
     </p>
 
-    <div class="btns">
-      <a href="projects.html" class="btn primary">View Projects</a>
-      <button class="btn outline" onclick="openCV()">Download CV</button>
-    </div>
+    <a href="projects.html" class="btn primary">View Projects</a>
+    <button class="btn outline" onclick="openCV()">Download CV</button>
   </div>
 
   <img src="Muhammad Shoaib saeed.png" alt="Shoaib">
 </section>
 
-<!-- MODAL -->
 <div class="modal" id="cvModal">
   <div class="modal-content">
     <h3>Download CV</h3>
-    <p>Choose format</p>
     <a href="assets/Shoaib-CV.pdf" download>Download PDF</a>
     <button onclick="closeCV()" class="btn outline">Cancel</button>
   </div>
@@ -349,9 +337,12 @@ function closeCV(){
   document.getElementById("cvModal").style.display="none";
 }
 
-/* CURSOR LIGHT MOVEMENT */
-const cursor = document.getElementById("cursor");
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("active");
+}
 
+/* CURSOR */
+const cursor = document.getElementById("cursor");
 document.addEventListener("mousemove",(e)=>{
   cursor.style.left = e.clientX + "px";
   cursor.style.top = e.clientY + "px";
