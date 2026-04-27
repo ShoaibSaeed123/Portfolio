@@ -99,6 +99,13 @@ h2{
   font-size:14px;
 }
 
+.card p{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.5;
+}
+
 /* LIST PROJECTS */
 .list{
   display:grid;
@@ -167,36 +174,43 @@ h2{
 
 <div class="projects">
 
-<!-- KEEP YOUR EXISTING VIDEO PROJECTS SAME -->
+<!-- PROJECT 1 -->
 <div class="card" onclick="showProject('assets/project1.mp4','Blood Donation System','MERN blood donation system.')">
 <video src="assets/project1.mp4" muted autoplay loop></video>
 <div class="card-content">
 <h4>Blood Donation System</h4>
-<span>MERN Stack</span>
+<span>MERN Stack • JWT • Admin Panel</span>
+<p>Full-stack web app with authentication, donor management, and blood request workflow.</p>
 </div>
 </div>
 
+<!-- PROJECT 2 -->
 <div class="card" onclick="showProject('assets/project2.mp4','Gaming Website','Games listing website.')">
 <video src="assets/project2.mp4" muted autoplay loop></video>
 <div class="card-content">
 <h4>Gaming Website</h4>
-<span>HTML • CSS • JS</span>
+<span>HTML • CSS • JavaScript</span>
+<p>Interactive gaming platform displaying game details, categories, and download options.</p>
 </div>
 </div>
 
+<!-- PROJECT 3 -->
 <div class="card" onclick="showProject('assets/project3.mp4','Hotel Platform','Hotel UI system.')">
 <video src="assets/project3.mp4" muted autoplay loop></video>
 <div class="card-content">
 <h4>Hotel Platform</h4>
-<span>Frontend</span>
+<span>Frontend • Responsive Design</span>
+<p>Modern hotel interface with responsive layout, booking UI, and smooth user experience.</p>
 </div>
 </div>
 
+<!-- PROJECT 4 -->
 <div class="card" onclick="showProject('assets/project4.mp4','Landing Page','Educational landing page.')">
 <video src="assets/project4.mp4" muted autoplay loop></video>
 <div class="card-content">
-<h4>Facebook login clone(only for phishing education purpose)</h4>
+<h4>Facebook Login Clone (Educational)</h4>
 <span>HTML • CSS</span>
+<p>Frontend clone built for phishing awareness and UI practice.</p>
 </div>
 </div>
 
@@ -218,8 +232,6 @@ h2{
 <span>Blazor • .NET</span>
 <p>Quiz system built using Blazor with interactive questions and scoring.</p>
 </div>
-
-
 
 <div class="list-item">
 <h4>Diabetes Prediction System</h4>
@@ -244,7 +256,6 @@ h2{
 <span>Frontend • Responsive</span>
 <p>Responsive UI for browsing and viewing movie details.</p>
 </div>
-
 
 </div>
 
